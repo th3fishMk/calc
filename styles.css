@@ -1,8 +1,8 @@
 :root {
-    --color-main: #3e1e68;
-    --Color-sec: #5d2f77;
-    --color-third: #e45a92;
-    --color-four: #ffacac;
+    --color-main: black;
+    --Color-sec: #333333;
+    --color-third: #ff9f0a;
+    --color-four: silver;
 }
 
 * {
@@ -26,19 +26,22 @@ body {
 .calc {
     display: grid;
     grid-template-columns: minmax(200px, min-content);
-    grid-template-rows: minmax(250px, auto) min-content;
+    grid-template-rows: minmax(250px, 350px) min-content;
     gap: 8px;
     background-color: var(--color-main);
     font-size: 2rem;
     border-radius: 8px;
     border: 1rem solid transparent;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 .display {
     display: grid;
     grid-template-columns: minmax(auto, 400px);
-    grid-template-rows: 1fr 1fr 2fr;
+    grid-template-rows: minmax(auto, auto) min-content 200px;
+    color: var(--color-third);
+    align-items: end;
+    height: 100%;
 }
 
 .display :first-child {
@@ -47,6 +50,7 @@ body {
 
 .display :last-child {
     border-radius: 0 0 8px 8px;
+    text-align: end;
 }
 
 .display > * {
@@ -55,14 +59,13 @@ body {
     align-items: center;
     justify-content: end;
     font-size: 3rem;
-    background-color: var(--color-four);
 }
 
 .digits-pad {
     display: grid;
     grid-template-columns: repeat(4, minmax(min-content, max-content));
     grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
+    gap: 8px;
     justify-items: center;
     align-self: center;
 }
@@ -72,42 +75,30 @@ body {
     width: 160px;
     border-radius: 8px;
 }
-
+/* Digits buttons */
 .digits-pad > * {
-    background-color: var(--color-third);
+    background-color: var(--Color-sec);
     border-radius: 50%;
     height: 60px;
     width: 60px;
     font-size: 1.5rem;
     display: inline-block;
     border: 0px;
+    font-weight: 900;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.digits-pad > *:hover {
+    transform: scale(1.1);
+}
+.digits-pad > *:active {
+    transform: scale(0.9);
 }
 
 .operations {
-    background-color: var(--Color-sec);
-}
-.digits-pad > *:hover {
-    background-color: var(--Color-sec);
-}
-.digits-pad > *:active {
-    background-color: var(--color-four);
-}
-
-.operations:hover {
     background-color: var(--color-third);
-}
-
-#equals {
-    background-color: var(--Color-sec);
-    color: var(--color-third);
-}
-#equals:hover {
-    background-color: var(--color-four);
-    color: #141316;
-}
-
-#equals:active {
-    background-color: var(--color-main);
+    color: black;
 }
 
 #input {

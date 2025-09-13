@@ -77,10 +77,7 @@ function performOperation(operation: string) {
             clearLine();
             break;
         case 'Enter':
-            // Enter perform the pending operation
-            // Or sends the input to the ans
             if (pendingOperation) {
-                // updatePending('Equals');
                 doMath(pendingOperation);
             } else {
                 console.log(`Nothing to do`);
@@ -116,7 +113,7 @@ function doMath(operation: string) {
             break;
         case '*':
             const times = firstNumber * secondNumber;
-            const timesText = `${firstNumber} * ${secondNumber} = ${times}`;
+            const timesText = `${firstNumber} × ${secondNumber} = ${times}`;
             console.log(timesText);
             updateResults(times);
             updatePending(timesText, false);
@@ -126,7 +123,7 @@ function doMath(operation: string) {
                 console.warn(`Attempt to divide by zero`);
             } else {
                 const notTimes = firstNumber / secondNumber;
-                const notTimesText = `${firstNumber} / ${secondNumber} = ${notTimes}`;
+                const notTimesText = `${firstNumber} ÷ ${secondNumber} = ${notTimes}`;
                 console.log(notTimesText);
                 updateResults(notTimes);
                 updatePending(notTimesText, false);
@@ -168,16 +165,16 @@ function updatePending(operation: string | undefined, hard = true) {
     } else {
         switch (operation) {
             case '+':
-                pendingOperationDisplay.textContent = 'Plus';
+                pendingOperationDisplay.textContent = '+';
                 break;
             case '-':
-                pendingOperationDisplay.textContent = 'Minus';
+                pendingOperationDisplay.textContent = '-';
                 break;
             case '*':
-                pendingOperationDisplay.textContent = 'Times';
+                pendingOperationDisplay.textContent = '×';
                 break;
             case '/':
-                pendingOperationDisplay.textContent = 'Divided by';
+                pendingOperationDisplay.textContent = '÷';
                 break;
             default:
                 pendingOperationDisplay.textContent = operation;
