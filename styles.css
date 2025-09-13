@@ -10,9 +10,11 @@
     padding: 0;
     margin: 0;
 }
+.main {
+    min-width: max-content;
+}
 
 body {
-    /* background-color: gray; */
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -23,18 +25,19 @@ body {
 }
 .calc {
     display: grid;
-    grid-template-columns: minmax(200px, auto);
+    grid-template-columns: minmax(200px, min-content);
     grid-template-rows: minmax(250px, auto) min-content;
     gap: 8px;
     background-color: var(--color-main);
     font-size: 2rem;
-    border: 1rem solid transparent;
     border-radius: 8px;
+    border: 1rem solid transparent;
+    margin: 2rem;
 }
 
 .display {
     display: grid;
-    grid-template-columns: minmax(200px, 400px);
+    grid-template-columns: minmax(auto, 400px);
     grid-template-rows: 1fr 1fr 2fr;
 }
 
@@ -57,7 +60,7 @@ body {
 
 .digits-pad {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(min-content, max-content));
     grid-template-rows: repeat(5, 1fr);
     gap: 5px;
     justify-items: center;
@@ -115,4 +118,13 @@ body {
 #pending {
     font-size: 2rem;
     color: var(--Color-sec);
+}
+
+.disclaimer {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+a:link {
+    color: var(--color-main);
 }
