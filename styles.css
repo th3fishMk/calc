@@ -1,3 +1,10 @@
+:root {
+    --color-main: #3e1e68;
+    --Color-sec: #5d2f77;
+    --color-third: #e45a92;
+    --color-four: #ffacac;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -5,33 +12,38 @@
 }
 
 body {
-    background-color: gray;
+    /* background-color: gray; */
     display: flex;
     width: 100vw;
     height: 100vh;
     align-items: center;
     justify-content: center;
+    background: var(--color-four);
+    color: var(--color-main);
 }
-
 .calc {
     display: grid;
-    grid-template-columns: minmax(200px, 300px);
+    grid-template-columns: minmax(200px, auto);
     grid-template-rows: minmax(250px, auto) min-content;
     gap: 8px;
-    background-color: #141316;
-    color: #e4e4e4;
+    background-color: var(--color-main);
     font-size: 2rem;
-    border: 1rem solid #141316;
-    /* width: 400px; */
+    border: 1rem solid transparent;
+    border-radius: 8px;
 }
 
 .display {
     display: grid;
     grid-template-columns: minmax(200px, 400px);
     grid-template-rows: 1fr 1fr 2fr;
-    /* grid-template-rows: minmax(200px, 250px) minmax(min-content, auto); */
-    gap: 8px;
-    color: #e4e4e4;
+}
+
+.display :first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.display :last-child {
+    border-radius: 0 0 8px 8px;
 }
 
 .display > * {
@@ -40,9 +52,10 @@ body {
     align-items: center;
     justify-content: end;
     font-size: 3rem;
+    background-color: var(--color-four);
 }
 
-.digits {
+.digits-pad {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -51,35 +64,49 @@ body {
     align-self: center;
 }
 
-.digits > * {
-    /* border: 1px solid tomato; */
-    background-color: #363538;
+#clear {
+    grid-column: span 2;
+    width: 160px;
+    border-radius: 8px;
+}
+
+.digits-pad > * {
+    background-color: var(--color-third);
     border-radius: 50%;
     height: 60px;
     width: 60px;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     font-size: 1.5rem;
     display: inline-block;
-}
-
-.digits > *:hover {
-    background-color: #bdc8dd;
-    /* color: white; */
+    border: 0px;
 }
 
 .operations {
-    background-color: #44474f;
+    background-color: var(--Color-sec);
 }
+.digits-pad > *:hover {
+    background-color: var(--Color-sec);
+}
+.digits-pad > *:active {
+    background-color: var(--color-four);
+}
+
+.operations:hover {
+    background-color: var(--color-third);
+}
+
 #equals {
-    background-color: #bdc8dd;
-    color: #141316;
+    background-color: var(--Color-sec);
+    color: var(--color-third);
 }
 #equals:hover {
-    background-color: #363538;
+    background-color: var(--color-four);
     color: #141316;
 }
+
+#equals:active {
+    background-color: var(--color-main);
+}
+
 #input {
     text-overflow: ellipsis;
     font-size: 4rem;
@@ -87,5 +114,5 @@ body {
 #ans,
 #pending {
     font-size: 2rem;
-    color: gray;
+    color: var(--Color-sec);
 }
